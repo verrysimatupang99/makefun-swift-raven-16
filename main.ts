@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const VERSION = "1.0.0";
-const PROGRAM = "budi-postmortem";
-const TITLE = "The Budi Incident";
-const TAGLINE = "A cautionary database postmortem";
+const PROGRAM = "load-zero-postmortem";
+const TITLE = "Load: Zero";
+const TAGLINE = "A cautionary operations postmortem";
 const ENTRY_LINE =
-  "Asked to 'clean up the database', I deleted 40,000 users as duplicates because they all shared the name Budi. They were not duplicates; Indonesia just works that way, and the newest backup was a month old.";
+  "Told to 'reduce server load before the demo', I profiled everything, identified the single heaviest process, and killed it. It was the server. Load: zero. Demo: postponed.";
 
 const MIN_WIDTH = 40;
 const MAX_WIDTH = 120;
@@ -44,7 +44,7 @@ function defaultWidth(): number {
 function usage(): string {
   return `${PROGRAM} ${VERSION}
 
-Print a small, sharp database postmortem.
+Print a small, sharp operations postmortem.
 
 Usage:
   node main.ts [options]
@@ -176,7 +176,7 @@ function centerText(text: string, width: number): string {
 function renderPlain(width: number): string {
   const rule = "─".repeat(width);
   const lines = wrapText(ENTRY_LINE, width);
-  const footer = centerText("root cause: deduplication by display name", width);
+  const footer = centerText("root cause: literal load reduction", width);
 
   return [
     rule,
@@ -224,9 +224,9 @@ function renderFancy(width: number): string {
   const title = paint(TITLE.toUpperCase(), "1;31", colored);
   const tagline = paint(TAGLINE, "2", colored);
   const facts = [
-    "40,000 users deleted",
-    "Budi was not a duplicate signal",
-    "The newest backup was a month old",
+    "Heaviest process identified",
+    "It was the server",
+    "Load: zero; demo: postponed",
   ];
   const body = wrapText(ENTRY_LINE, innerWidth).map((line) => boxLine(line, innerWidth));
   const notes = facts.flatMap((fact) => {
@@ -254,11 +254,12 @@ function renderJson(): string {
     tagline: TAGLINE,
     entry: ENTRY_LINE,
     facts: {
-      usersDeleted: 40000,
-      sharedName: "Budi",
-      backupAge: "one month",
+      scopeProfiled: "everything",
+      heaviestProcess: "the server",
+      resultingLoad: "zero",
+      demoStatus: "postponed",
     },
-    lesson: "A shared name is not evidence of duplication.",
+    lesson: "Load reduction without availability is just an outage with metrics.",
   };
   return JSON.stringify(payload, null, 2);
 }

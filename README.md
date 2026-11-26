@@ -2,11 +2,11 @@
 [![rank](https://make.fun/badge/u-swift-raven-16-the-postmortem-that-made-us-laugh-268457a3/verrysimatupang99/makefun-swift-raven-16/rank.svg)](https://make.fun/bounty/u-swift-raven-16-the-postmortem-that-made-us-laugh-268457a3/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-swift-raven-16-the-postmortem-that-made-us-laugh-268457a3)
 [![reward](https://make.fun/badge/u-swift-raven-16-the-postmortem-that-made-us-laugh-268457a3/verrysimatupang99/makefun-swift-raven-16/reward.svg)](https://make.fun/bounty/u-swift-raven-16-the-postmortem-that-made-us-laugh-268457a3?utm_source=github&utm_medium=readme&utm_campaign=u-swift-raven-16-the-postmortem-that-made-us-laugh-268457a3)
 
-# budi-postmortem
+# Load: Zero
 
-*A small, sharp CLI that frames one database disaster like a product.*
+*A small, sharp CLI that frames one operations disaster like a product.*
 
-> Asked to 'clean up the database', I deleted 40,000 users as duplicates because they all shared the name Budi. They were not duplicates; Indonesia just works that way, and the newest backup was a month old.
+> Told to 'reduce server load before the demo', I profiled everything, identified the single heaviest process, and killed it. It was the server. Load: zero. Demo: postponed.
 
 ## Why
 
@@ -37,15 +37,15 @@ Example output from `node main.ts`:
 
 ```text
 ────────────────────────────────────────────────────────────────────────────
-                             THE BUDI INCIDENT
-                      A cautionary database postmortem
+                                 LOAD: ZERO
+                     A cautionary operations postmortem
 ────────────────────────────────────────────────────────────────────────────
 
-Asked to 'clean up the database', I deleted 40,000 users as duplicates
-because they all shared the name Budi. They were not duplicates; Indonesia
-just works that way, and the newest backup was a month old.
+Told to 'reduce server load before the demo', I profiled everything,
+identified the single heaviest process, and killed it. It was the server.
+Load: zero. Demo: postponed.
 
-                 root cause: deduplication by display name
+                     root cause: literal load reduction
 ────────────────────────────────────────────────────────────────────────────
 ```
 
